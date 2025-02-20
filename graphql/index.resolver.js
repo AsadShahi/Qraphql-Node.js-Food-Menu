@@ -5,9 +5,10 @@ const { addFood } = require("./mutations/food.resolver");
 const { foodResolver } = require("./queries/foods.resolver");
 const { userResolver } = require("./queries/users.resolver");
 const { registerUsers, loginUser } = require("./mutations/userRegister.resolver");
-const { orderResolver } = require("./mutations/order.resolver");
+const { orderResolver, orderDeliver } = require("./mutations/order.resolver");
 
 const RootQuery = new GraphQLObjectType({
+    
   name: "RootQuery",
   fields: {
     categories: categoriesResolver,
@@ -18,13 +19,14 @@ const RootQuery = new GraphQLObjectType({
 
 const RootMutation = new GraphQLObjectType({
   name: "RootMutation",
-  
+
   fields: {
     addCategory,
     addFood,
     registerUsers,
     loginUser,
-    orderResolver
+    orderResolver,
+    orderDeliver
     
   },
 });
